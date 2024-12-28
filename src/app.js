@@ -37,10 +37,16 @@ app.use(
 );
 
 // routes import
+import { errorHandler } from "./middlewares/error.middleware.js";
+
 import userRouter from "./routes/user.routes.js";
 import healthcheckRouter from "./routes/healthcheck.routes.js";
 
+// route declaration
 app.use("/api/v1/healthcheck", healthcheckRouter);
 app.use("/api/v1/users", userRouter);
+
+// common error handling middleware
+app.use(errorHandler);
 
 export { app };
