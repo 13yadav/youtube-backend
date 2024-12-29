@@ -291,6 +291,8 @@ export const updateAvatar = asyncHandler(async (req, res) => {
     { new: true }
   ).select("-password -refreshToken");
 
+  // TODO: remove existing after uploading new
+
   return res.status(200).json(
     new ApiResponse(
       200,
@@ -324,6 +326,8 @@ export const updateCoverImage = asyncHandler(async (req, res) => {
     },
     { new: true }
   ).select("-password -refreshToken");
+
+  // TODO: remove existing after uploading new
 
   return res.status(200).json(
     new ApiResponse(
