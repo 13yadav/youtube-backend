@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   changePassword,
   getUser,
+  getWatchHistory,
   loginUser,
   logoutUser,
   refreshAccessToken,
@@ -25,11 +26,16 @@ router.route("/register").post(
 router.route("/login").post(loginUser);
 
 // secured routes
-router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/refresh-token").post(refreshAccessToken);
+router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/me").post(verifyJWT, getUser);
 router.route("/change-password").post(verifyJWT, changePassword);
-router.route("/update-avatar").post(upload.single("avatar"), updateAvatar);
-router.route("/update-cover").post(upload.single("coverImage"), updateCoverImage);
+router
+  .route("/update-avatar")
+  .post(verifyJWT, upload.single("avatar"), updateAvatar);
+router
+  .route("/update-cover")
+  .post(verifyJWT, upload.single("coverImage"), updateCoverImage);
+router.route("/watch-history").post(verifyJWT, getWatchHistory);
 
 export default router;
