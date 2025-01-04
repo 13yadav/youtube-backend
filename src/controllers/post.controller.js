@@ -1,24 +1,24 @@
 import mongoose, { isValidObjectId } from "mongoose";
-import { Tweet } from "../models/tweet.model.js";
+import { Post } from "../models/post.model.js";
 import { User } from "../models/user.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
-const createTweet = asyncHandler(async (req, res) => {
-  //TODO: create tweet
+const createPost = asyncHandler(async (req, res) => {
+  //TODO: create post
 });
 
-const getUserTweets = asyncHandler(async (req, res) => {
-  // TODO: get user tweets
+const getUserPosts = asyncHandler(async (req, res) => {
+  // TODO: get user posts
 });
 
-const updateTweet = asyncHandler(async (req, res) => {
-  //TODO: update tweet
+const updatePost = asyncHandler(async (req, res) => {
+  //TODO: update post
 });
 
-const deleteTweet = asyncHandler(async (req, res) => {
-  //TODO: delete tweet
+const deletePost = asyncHandler(async (req, res) => {
+  //TODO: delete post
 });
 
-export { createTweet, getUserTweets, updateTweet, deleteTweet };
+export { createPost, getUserPosts, updatePost, deletePost };
