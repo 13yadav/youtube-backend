@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { isValidObjectId } from "mongoose";
 import { Comment } from "../models/comment.model.js";
 import { Video } from "../models/video.model.js";
 import { ApiError } from "../utils/ApiError.js";
@@ -64,7 +64,7 @@ const updateComment = asyncHandler(async (req, res) => {
   const { commentId } = req.params;
   const { comment } = req.body;
 
-  if (!mongoose.Types.ObjectId.isValid(commentId)) {
+  if (!isValidObjectId(commentId)) {
     throw new ApiError(400, "Invalid commentId");
   }
 
@@ -94,7 +94,7 @@ const updateComment = asyncHandler(async (req, res) => {
 const deleteComment = asyncHandler(async (req, res) => {
   const { commentId } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(commentId)) {
+  if (!isValidObjectId(commentId)) {
     throw new ApiError(400, "Invalid commentId");
   }
 
